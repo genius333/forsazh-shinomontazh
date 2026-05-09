@@ -23,6 +23,7 @@ body {
   color: var(--text-main);
   font-family: 'Russo One', sans-serif;
   overflow-x: hidden;
+  padding-top: 70px; /* Исправление: отступ для фиксированного меню */
 }
 
 /* Speed Lines Background */
@@ -46,8 +47,8 @@ body::before {
 /* Animations */
 @keyframes neonPulse {
   0%, 100% { text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 40px var(--primary); }
-  50% { text-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary), 0 0 80px var(--primary), 0 0 120px var(--primary); }
-}
+  50% { text-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary), 0 0 80px var(--primary), 0 0 120px var(--primary); }}
+
 @keyframes goldPulse {
   0%, 100% { text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent); }
   50% { text-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent), 0 0 80px var(--accent); }
@@ -83,6 +84,7 @@ nav {
   z-index: 100;
   border-bottom: 2px solid var(--primary);
   box-shadow: 0 5px 30px rgba(0, 242, 255, 0.3);
+  height: 70px;
 }
 
 .logo {
@@ -95,8 +97,8 @@ nav {
   -webkit-text-fill-color: transparent;
   animation: goldPulse 3s infinite;
 }
-
-.nav-btn {  background: transparent;
+.nav-btn {
+  background: transparent;
   color: var(--primary);
   border: 2px solid var(--primary);
   padding: 10px 25px;
@@ -123,7 +125,7 @@ nav {
   align-items: center;
   text-align: center;
   position: relative;
-  padding: 0 20px;
+  padding: 40px 20px;
   background: 
     linear-gradient(180deg, rgba(5,5,5,0.3) 0%, rgba(5,5,5,0.8) 50%, rgba(5,5,5,1) 100%),
     url('https://cdn.pixabay.com/photo/2016/02/13/13/11/oldtimer-1197100_1280.jpg') center/cover no-repeat;
@@ -143,12 +145,12 @@ nav {
 .hero-content {
   position: relative;
   z-index: 2;
-  animation: slideIn 1s ease-out;
-}
+  animation: slideIn 1s ease-out;}
+
 .hero h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 5rem;
-  line-height: 1;
+  font-size: 4.5rem;
+  line-height: 1.1;
   margin-bottom: 20px;
   font-style: italic;
   text-transform: uppercase;
@@ -157,7 +159,7 @@ nav {
 .hero h1 .main-text {
   display: block;
   color: #fff;
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
@@ -167,11 +169,11 @@ nav {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: goldPulse 2s infinite;
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 
 .hero p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--text-muted);
   margin-bottom: 40px;
   max-width: 700px;
@@ -192,9 +194,9 @@ nav {
 }
 
 .stat-number {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3rem;
-  font-weight: 900;  color: var(--primary);
+  font-family: 'Orbitron', sans-serif;  font-size: 3rem;
+  font-weight: 900;
+  color: var(--primary);
   display: block;
   animation: neonPulse 3s infinite;
 }
@@ -241,8 +243,8 @@ nav {
   height: 200%;
   background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
   transform: rotate(45deg);
-  animation: shine 3s infinite;
-}
+  animation: shine 3s infinite;}
+
 /* Racing Stripes Divider */
 .racing-divider {
   height: 6px;
@@ -290,9 +292,9 @@ nav {
   animation: neonPulse 2s infinite;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));  gap: 30px;
+.grid {  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -310,7 +312,7 @@ nav {
 }
 
 .card-image {
-  height: 180px;
+  height: 200px;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -326,22 +328,22 @@ nav {
   background: linear-gradient(0deg, var(--bg-card) 0%, transparent 100%);
 }
 
-/* Картинки с Pixabay (работают без VPN) */
+/* ТЕМАТИЧЕСКИЕ ФОТО С РАБОЧЕГО ПРОЦЕССА (Pixabay - без VPN) */
 .card:nth-child(1) .card-image {
-  background-image: url('https://cdn.pixabay.com/photo/2016/04/01/12/16/car-1300629_1280.png');
+  background-image: url('https://cdn.pixabay.com/photo/2016/08/15/10/12/car-1594193_1280.jpg');
 }
 .card:nth-child(2) .card-image {
-  background-image: url('https://cdn.pixabay.com/photo/2012/05/29/00/43/car-49278_1280.png');
+  background-image: url('https://cdn.pixabay.com/photo/2013/07/18/11/04/racing-164937_1280.jpg');
 }
 .card:nth-child(3) .card-image {
-  background-image: url('https://cdn.pixabay.com/photo/2014/11/15/13/58/car-531334_1280.png');
+  background-image: url('https://cdn.pixabay.com/photo/2017/08/02/19/33/tires-2573552_1280.jpg');
 }
 .card:nth-child(4) .card-image {
   background-image: url('https://cdn.pixabay.com/photo/2016/04/01/12/16/car-1300629_1280.png');
 }
-
 .card-content {
-  padding: 30px;  position: relative;
+  padding: 30px;
+  position: relative;
 }
 
 .card h3 {
@@ -388,9 +390,9 @@ nav {
   border-color: var(--primary);
   box-shadow: 
     0 20px 60px rgba(0, 242, 255, 0.2),
-    0 0 30px rgba(0, 242, 255, 0.1),
-    inset 0 0 30px rgba(0, 242, 255, 0.05);
+    0 0 30px rgba(0, 242, 255, 0.1),    inset 0 0 30px rgba(0, 242, 255, 0.05);
 }
+
 .card:hover .card-image {
   transform: scale(1.1);
 }
@@ -437,9 +439,9 @@ nav {
   text-align: center;
   background: 
     linear-gradient(180deg, rgba(5,5,5,0.9), rgba(5,5,5,0.7)),
-    url('https://cdn.pixabay.com/photo/2014/10/29/15/34/road-509609_1280.jpg') center/cover no-repeat;
-  position: relative;
+    url('https://cdn.pixabay.com/photo/2014/10/29/15/34/road-509609_1280.jpg') center/cover no-repeat;  position: relative;
 }
+
 .cta-section h2 {
   font-family: 'Orbitron', sans-serif;
   font-size: 3rem;
@@ -486,9 +488,9 @@ footer p {
 
 footer .contact {
   color: var(--accent);
-  font-size: 1.1rem;
-  margin-top: 15px;
+  font-size: 1.1rem;  margin-top: 15px;
 }
+
 /* MODAL */
 .modal-overlay {
   position: fixed;
@@ -535,9 +537,9 @@ footer .contact {
 
 .close-modal {
   position: absolute;
-  top: 10px; right: 20px;
-  font-size: 2rem;
-  cursor: pointer;  color: var(--text-muted);
+  top: 10px; right: 20px;  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-muted);
   transition: 0.3s;
 }
 .close-modal:hover { color: var(--red); transform: rotate(90deg); }
@@ -584,9 +586,9 @@ footer .contact {
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #000;
-  transition: 0.3s;
-  clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);}
+  color: #000;  transition: 0.3s;
+  clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
+}
 
 .modal-btn:hover {
   box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
@@ -606,9 +608,11 @@ footer .contact {
 }
 
 @media (max-width: 768px) {
-  .hero h1 { font-size: 3rem; }
-  .hero h1 .main-text { font-size: 2rem; }
-  .hero h1 .highlight { font-size: 2.5rem; }
+  body { padding-top: 60px; }
+  nav { height: 60px; }
+  .hero h1 { font-size: 2.5rem; }
+  .hero h1 .main-text { font-size: 1.8rem; }
+  .hero h1 .highlight { font-size: 2.2rem; }
   .section-title { font-size: 2rem; }
   .grid { grid-template-columns: 1fr; }
   .hero-stats { gap: 20px; }
@@ -631,11 +635,11 @@ footer .contact {
       <span class="main-text">ШИНОМОНТАЖ</span>
       <span class="highlight">FORSAZH</span>
     </h1>
-    <p>Премиальный сервис для тех, кто живёт на скорости. Оборудование нового поколения, профессионалы и скорость реакции как в фильме.</p>
-    
+    <p>Премиальный сервис для тех, кто живёт на скорости. Оборудование нового поколения, профессионалы и скорость реакции как в фильме.</p>    
     <div class="hero-stats">
       <div class="stat-item">
-        <span class="stat-number">10+</span>        <span class="stat-label">Лет опыта</span>
+        <span class="stat-number">10+</span>
+        <span class="stat-label">Лет опыта</span>
       </div>
       <div class="stat-item">
         <span class="stat-number">50K+</span>
@@ -680,11 +684,11 @@ footer .contact {
 <!-- SERVICES -->
 <section class="services">
   <h2 class="section-title">УСЛУГИ И <span class="gold">ЦЕНЫ</span></h2>
-  
-  <div class="grid">
-    <!-- Card 1 -->
+    <div class="grid">
+    <!-- Card 1: Переобувка -->
     <div class="card">
-      <div class="card-image"></div>      <div class="card-content">
+      <div class="card-image"></div>
+      <div class="card-content">
         <h3>🔄 Переобувка</h3>
         <p>Снятие/Монтаж + Балансировка. Работаем с R15 - R22. Быстро и аккуратно.</p>
         <div class="price-row"><span>Легковые (R15-17)</span><span>1 800 ₽</span></div>
@@ -693,7 +697,7 @@ footer .contact {
       </div>
     </div>
 
-    <!-- Card 2 -->
+    <!-- Card 2: Балансировка -->
     <div class="card">
       <div class="card-image"></div>
       <div class="card-content">
@@ -705,7 +709,7 @@ footer .contact {
       </div>
     </div>
 
-    <!-- Card 3 -->
+    <!-- Card 3: Хранение -->
     <div class="card">
       <div class="card-image"></div>
       <div class="card-content">
@@ -717,7 +721,7 @@ footer .contact {
       </div>
     </div>
 
-    <!-- Card 4 -->
+    <!-- Card 4: Ремонт -->
     <div class="card">
       <div class="card-image"></div>
       <div class="card-content">
@@ -730,10 +734,10 @@ footer .contact {
     </div>
   </div>
 </section>
-
 <div class="racing-divider"></div>
 
-<!-- CTA SECTION --><section class="cta-section">
+<!-- CTA SECTION -->
+<section class="cta-section">
   <h2>ГОТОВ К <span class="gold">СКОРОСТИ</span>?</h2>
   <p>Не жди очередей. Запишись онлайн и приезжай в назначенное время. Мы уже ждём.</p>
   <button class="cta-btn" onclick="openModal()">📞 ЗАПИСАТЬСЯ</button>
@@ -779,10 +783,10 @@ footer .contact {
   modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
   });
-
   function submitBooking() {
     const name = document.getElementById('nameInput').value;
-    const phone = document.getElementById('phoneInput').value;    
+    const phone = document.getElementById('phoneInput').value;
+    
     if(!name || !phone) {
       alert("Заполни все поля, братан! 🔥");
       return;
