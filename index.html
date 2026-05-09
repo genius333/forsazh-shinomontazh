@@ -23,7 +23,7 @@ body {
   color: var(--text-main);
   font-family: 'Russo One', sans-serif;
   overflow-x: hidden;
-  padding-top: 70px; /* Исправление: отступ для фиксированного меню */
+  padding-top: 70px;
 }
 
 /* Speed Lines Background */
@@ -70,6 +70,16 @@ body::before {
   100% { left: 150%; }
 }
 
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
 /* NAV */
 nav {
   display: flex;
@@ -86,7 +96,6 @@ nav {
   box-shadow: 0 5px 30px rgba(0, 242, 255, 0.3);
   height: 70px;
 }
-
 .logo {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.8rem;
@@ -97,6 +106,7 @@ nav {
   -webkit-text-fill-color: transparent;
   animation: goldPulse 3s infinite;
 }
+
 .nav-btn {
   background: transparent;
   color: var(--primary);
@@ -116,7 +126,7 @@ nav {
   box-shadow: 0 0 25px var(--primary), inset 0 0 25px rgba(0,242,255,0.3);
 }
 
-/* HERO */
+/* HERO С ФОТО КРАСНОЙ МАШИНЫ */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -127,16 +137,15 @@ nav {
   position: relative;
   padding: 40px 20px;
   background: 
-    linear-gradient(180deg, rgba(5,5,5,0.3) 0%, rgba(5,5,5,0.8) 50%, rgba(5,5,5,1) 100%),
-    url('https://cdn.pixabay.com/photo/2016/02/13/13/11/oldtimer-1197100_1280.jpg') center/cover no-repeat;
+    linear-gradient(180deg, rgba(5,5,5,0.3) 0%, rgba(5,5,5,0.7) 50%, rgba(5,5,5,0.9) 100%),
+    url('https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover no-repeat;
 }
 
 .hero::before {
   content: '';
   position: absolute;
   top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: 
+  width: 100%; height: 100%;  background: 
     linear-gradient(45deg, rgba(0, 242, 255, 0.1) 0%, transparent 50%),
     linear-gradient(-45deg, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
   pointer-events: none;
@@ -145,7 +154,8 @@ nav {
 .hero-content {
   position: relative;
   z-index: 2;
-  animation: slideIn 1s ease-out;}
+  animation: slideIn 1s ease-out;
+}
 
 .hero h1 {
   font-family: 'Orbitron', sans-serif;
@@ -184,8 +194,7 @@ nav {
 .hero-stats {
   display: flex;
   gap: 40px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
+  margin-bottom: 40px;  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -194,7 +203,8 @@ nav {
 }
 
 .stat-number {
-  font-family: 'Orbitron', sans-serif;  font-size: 3rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
   font-weight: 900;
   color: var(--primary);
   display: block;
@@ -233,7 +243,6 @@ nav {
   transform: scale(1.05);
   box-shadow: 0 0 50px rgba(255, 215, 0, 0.5), 0 0 100px rgba(255, 215, 0, 0.2);
 }
-
 .cta-btn::after {
   content: '';
   position: absolute;
@@ -243,7 +252,8 @@ nav {
   height: 200%;
   background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
   transform: rotate(45deg);
-  animation: shine 3s infinite;}
+  animation: shine 3s infinite;
+}
 
 /* Racing Stripes Divider */
 .racing-divider {
@@ -282,7 +292,6 @@ nav {
   color: var(--accent);
   animation: goldPulse 3s infinite;
 }
-
 .section-title::after {
   content: '///';
   display: block;
@@ -292,7 +301,8 @@ nav {
   animation: neonPulse 2s infinite;
 }
 
-.grid {  display: grid;
+.grid {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
   max-width: 1400px;
@@ -311,13 +321,27 @@ nav {
   clip-path: polygon(0 0, 100% 0, 100% 90%, 95% 100%, 0 100%);
 }
 
+/* SVG Card Images */
 .card-image {
   height: 200px;
-  background-size: cover;
-  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
 }
 
+.card:nth-child(1) .card-image {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+.card:nth-child(2) .card-image {
+  background: linear-gradient(135deg, #134e5e, #71b280);
+}
+.card:nth-child(3) .card-image {
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+}
+.card:nth-child(4) .card-image {
+  background: linear-gradient(135deg, #cc2b5e, #753a88);
+}
 .card-image::after {
   content: '';
   position: absolute;
@@ -328,19 +352,19 @@ nav {
   background: linear-gradient(0deg, var(--bg-card) 0%, transparent 100%);
 }
 
-/* ТЕМАТИЧЕСКИЕ ФОТО С РАБОЧЕГО ПРОЦЕССА (Pixabay - без VPN) */
-.card:nth-child(1) .card-image {
-  background-image: url('https://cdn.pixabay.com/photo/2016/08/15/10/12/car-1594193_1280.jpg');
+.card-svg {
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.4));
+  transition: 0.4s;
 }
-.card:nth-child(2) .card-image {
-  background-image: url('https://cdn.pixabay.com/photo/2013/07/18/11/04/racing-164937_1280.jpg');
+
+.card:hover .card-svg {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 30px rgba(0,242,255,0.8));
 }
-.card:nth-child(3) .card-image {
-  background-image: url('https://cdn.pixabay.com/photo/2017/08/02/19/33/tires-2573552_1280.jpg');
-}
-.card:nth-child(4) .card-image {
-  background-image: url('https://cdn.pixabay.com/photo/2016/04/01/12/16/car-1300629_1280.png');
-}
+
 .card-content {
   padding: 30px;
   position: relative;
@@ -366,8 +390,7 @@ nav {
 .price-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
+  align-items: center;  margin-bottom: 12px;
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(255,255,255,0.05);
   font-family: sans-serif;
@@ -390,11 +413,8 @@ nav {
   border-color: var(--primary);
   box-shadow: 
     0 20px 60px rgba(0, 242, 255, 0.2),
-    0 0 30px rgba(0, 242, 255, 0.1),    inset 0 0 30px rgba(0, 242, 255, 0.05);
-}
-
-.card:hover .card-image {
-  transform: scale(1.1);
+    0 0 30px rgba(0, 242, 255, 0.1),
+    inset 0 0 30px rgba(0, 242, 255, 0.05);
 }
 
 /* FEATURES BAR */
@@ -419,7 +439,6 @@ nav {
   margin-bottom: 10px;
   display: block;
 }
-
 .feature-item h4 {
   font-family: 'Orbitron', sans-serif;
   color: var(--accent);
@@ -433,13 +452,14 @@ nav {
   font-size: 0.85rem;
 }
 
-/* CTA SECTION */
+/* CTA SECTION С ФОТО ДОРОГИ */
 .cta-section {
   padding: 100px 5%;
   text-align: center;
   background: 
-    linear-gradient(180deg, rgba(5,5,5,0.9), rgba(5,5,5,0.7)),
-    url('https://cdn.pixabay.com/photo/2014/10/29/15/34/road-509609_1280.jpg') center/cover no-repeat;  position: relative;
+    linear-gradient(180deg, rgba(5,5,5,0.85), rgba(5,5,5,0.9)),
+    url('https://images.pexels.com/photos/1456287/pexels-photo-1456287.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover no-repeat;
+  position: relative;
 }
 
 .cta-section h2 {
@@ -468,7 +488,6 @@ footer {
   position: relative;
   z-index: 1;
 }
-
 footer .logo-footer {
   font-family: 'Orbitron', sans-serif;
   font-size: 2rem;
@@ -488,7 +507,8 @@ footer p {
 
 footer .contact {
   color: var(--accent);
-  font-size: 1.1rem;  margin-top: 15px;
+  font-size: 1.1rem;
+  margin-top: 15px;
 }
 
 /* MODAL */
@@ -517,8 +537,7 @@ footer .contact {
   padding: 40px;
   border: 2px solid var(--primary);
   width: 90%;
-  max-width: 500px;
-  text-align: center;
+  max-width: 500px;  text-align: center;
   position: relative;
   box-shadow: 0 0 80px rgba(0, 242, 255, 0.3);
   clip-path: polygon(0 0, 100% 0, 100% 95%, 97% 100%, 0 100%);
@@ -537,7 +556,8 @@ footer .contact {
 
 .close-modal {
   position: absolute;
-  top: 10px; right: 20px;  font-size: 2rem;
+  top: 10px; right: 20px;
+  font-size: 2rem;
   cursor: pointer;
   color: var(--text-muted);
   transition: 0.3s;
@@ -566,8 +586,7 @@ footer .contact {
 }
 
 .modal input:focus, .modal select:focus {
-  outline: none;
-  border-color: var(--primary);
+  outline: none;  border-color: var(--primary);
   box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
 }
 
@@ -586,7 +605,8 @@ footer .contact {
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #000;  transition: 0.3s;
+  color: #000;
+  transition: 0.3s;
   clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
 }
 
@@ -615,8 +635,8 @@ footer .contact {
   .hero h1 .highlight { font-size: 2.2rem; }
   .section-title { font-size: 2rem; }
   .grid { grid-template-columns: 1fr; }
-  .hero-stats { gap: 20px; }
-  .stat-number { font-size: 2rem; }
+  .hero-stats { gap: 20px; }  .stat-number { font-size: 2rem; }
+  .card-svg { width: 80px; height: 80px; }
 }
 </style>
 </head>
@@ -628,14 +648,15 @@ footer .contact {
   <button class="nav-btn" onclick="openModal()">ЗАПИСАТЬСЯ</button>
 </nav>
 
-<!-- HERO -->
+<!-- HERO С ФОТО КРАСНОЙ МАШИНЫ -->
 <section class="hero">
   <div class="hero-content">
     <h1>
       <span class="main-text">ШИНОМОНТАЖ</span>
       <span class="highlight">FORSAZH</span>
     </h1>
-    <p>Премиальный сервис для тех, кто живёт на скорости. Оборудование нового поколения, профессионалы и скорость реакции как в фильме.</p>    
+    <p>Премиальный сервис для тех, кто живёт на скорости. Оборудование нового поколения, профессионалы и скорость реакции как в фильме.</p>
+    
     <div class="hero-stats">
       <div class="stat-item">
         <span class="stat-number">10+</span>
@@ -663,8 +684,7 @@ footer .contact {
     <span class="feature-icon">⚡</span>
     <h4>БЫСТРО</h4>
     <p>Переобувка за 30 минут</p>
-  </div>
-  <div class="feature-item">
+  </div>  <div class="feature-item">
     <span class="feature-icon">🛡️</span>
     <h4>НАДЁЖНО</h4>
     <p>Гарантия на все работы</p>
@@ -681,13 +701,23 @@ footer .contact {
   </div>
 </div>
 
-<!-- SERVICES -->
+<!-- SERVICES С SVG ИКОНКАМИ -->
 <section class="services">
   <h2 class="section-title">УСЛУГИ И <span class="gold">ЦЕНЫ</span></h2>
-    <div class="grid">
+  
+  <div class="grid">
     <!-- Card 1: Переобувка -->
     <div class="card">
-      <div class="card-image"></div>
+      <div class="card-image">
+        <svg class="card-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 80 L50 30 L80 80 Z" fill="none" stroke="#fff" stroke-width="3"/>
+          <circle cx="50" cy="65" r="18" fill="none" stroke="#00f2ff" stroke-width="3"/>
+          <circle cx="50" cy="65" r="8" fill="#00f2ff" opacity="0.5"/>
+          <line x1="50" y1="47" x2="50" y2="83" stroke="#00f2ff" stroke-width="2"/>
+          <line x1="32" y1="65" x2="68" y2="65" stroke="#00f2ff" stroke-width="2"/>
+          <rect x="45" y="75" width="10" height="5" fill="#ffd700"/>
+        </svg>
+      </div>
       <div class="card-content">
         <h3>🔄 Переобувка</h3>
         <p>Снятие/Монтаж + Балансировка. Работаем с R15 - R22. Быстро и аккуратно.</p>
@@ -699,7 +729,18 @@ footer .contact {
 
     <!-- Card 2: Балансировка -->
     <div class="card">
-      <div class="card-image"></div>
+      <div class="card-image">
+        <svg class="card-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="35" fill="none" stroke="#71b280" stroke-width="3"/>
+          <circle cx="50" cy="50" r="25" fill="none" stroke="#fff" stroke-width="2"/>
+          <circle cx="50" cy="50" r="10" fill="#71b280" opacity="0.6"/>          <circle cx="50" cy="25" r="4" fill="#ffd700"/>
+          <circle cx="75" cy="50" r="4" fill="#ffd700"/>
+          <circle cx="50" cy="75" r="4" fill="#ffd700"/>
+          <circle cx="25" cy="50" r="4" fill="#ffd700"/>
+          <line x1="50" y1="15" x2="50" y2="5" stroke="#ffd700" stroke-width="3"/>
+          <circle cx="50" cy="5" r="3" fill="#ffd700"/>
+        </svg>
+      </div>
       <div class="card-content">
         <h3>⚖️ Балансировка</h3>
         <p>Компьютерная балансировка на оборудовании Hunter. Точность до 1 грамма.</p>
@@ -711,7 +752,19 @@ footer .contact {
 
     <!-- Card 3: Хранение -->
     <div class="card">
-      <div class="card-image"></div>
+      <div class="card-image">
+        <svg class="card-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="20" width="60" height="60" rx="5" fill="none" stroke="#fff" stroke-width="2"/>
+          <circle cx="35" cy="40" r="8" fill="none" stroke="#4b6cb7" stroke-width="3"/>
+          <circle cx="35" cy="40" r="3" fill="#4b6cb7" opacity="0.5"/>
+          <circle cx="65" cy="40" r="8" fill="none" stroke="#4b6cb7" stroke-width="3"/>
+          <circle cx="65" cy="40" r="3" fill="#4b6cb7" opacity="0.5"/>
+          <circle cx="35" cy="65" r="8" fill="none" stroke="#4b6cb7" stroke-width="3"/>
+          <circle cx="35" cy="65" r="3" fill="#4b6cb7" opacity="0.5"/>
+          <circle cx="65" cy="65" r="8" fill="none" stroke="#4b6cb7" stroke-width="3"/>
+          <circle cx="65" cy="65" r="3" fill="#4b6cb7" opacity="0.5"/>
+        </svg>
+      </div>
       <div class="card-content">
         <h3>📦 Хранение</h3>
         <p>Сезонное хранение шин в отапливаемом складе с контролем влажности.</p>
@@ -723,7 +776,16 @@ footer .contact {
 
     <!-- Card 4: Ремонт -->
     <div class="card">
-      <div class="card-image"></div>
+      <div class="card-image">
+        <svg class="card-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="30" fill="none" stroke="#cc2b5e" stroke-width="3"/>
+          <circle cx="50" cy="50" r="20" fill="none" stroke="#fff" stroke-width="2"/>
+          <circle cx="50" cy="50" r="8" fill="#cc2b5e" opacity="0.6"/>
+          <line x1="50" y1="20" x2="50" y2="80" stroke="#fff" stroke-width="2"/>
+          <line x1="20" y1="50" x2="80" y2="50" stroke="#fff" stroke-width="2"/>          <path d="M70 30 L85 15 L90 20 L75 35 Z" fill="#ffd700"/>
+          <circle cx="88" cy="12" r="4" fill="#ffd700"/>
+        </svg>
+      </div>
       <div class="card-content">
         <h3>🔧 Ремонт</h3>
         <p>Ремонт проколов, боковых порезов и грыж. Восстановление геометрии.</p>
@@ -734,9 +796,10 @@ footer .contact {
     </div>
   </div>
 </section>
+
 <div class="racing-divider"></div>
 
-<!-- CTA SECTION -->
+<!-- CTA С ФОТО ДОРОГИ -->
 <section class="cta-section">
   <h2>ГОТОВ К <span class="gold">СКОРОСТИ</span>?</h2>
   <p>Не жди очередей. Запишись онлайн и приезжай в назначенное время. Мы уже ждём.</p>
@@ -768,7 +831,6 @@ footer .contact {
     <button class="modal-btn" onclick="submitBooking()">ПОДТВЕРДИТЬ ЗАПИСЬ</button>
   </div>
 </div>
-
 <script>
   const modal = document.getElementById('bookingModal');
   
@@ -783,6 +845,7 @@ footer .contact {
   modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
   });
+
   function submitBooking() {
     const name = document.getElementById('nameInput').value;
     const phone = document.getElementById('phoneInput').value;
@@ -817,8 +880,7 @@ footer .contact {
   // Scroll animations for cards
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
+      if (entry.isIntersecting) {        setTimeout(() => {
           entry.target.classList.add('visible');
         }, index * 150);
       }
