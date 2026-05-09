@@ -43,12 +43,11 @@ body::before {
   z-index: 0;
 }
 
-/* Neon Glow Animation */
+/* Animations */
 @keyframes neonPulse {
   0%, 100% { text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 40px var(--primary); }
   50% { text-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary), 0 0 80px var(--primary), 0 0 120px var(--primary); }
 }
-
 @keyframes goldPulse {
   0%, 100% { text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent); }
   50% { text-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent), 0 0 80px var(--accent); }
@@ -59,16 +58,15 @@ body::before {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-@keyframes drift {
-  0% { transform: translateX(0) rotate(0deg); }
-  25% { transform: translateX(20px) rotate(2deg); }
-  75% { transform: translateX(-20px) rotate(-2deg); }
-  100% { transform: translateX(0) rotate(0deg); }
+@keyframes shine {
+  0% { left: -50%; }
+  100% { left: 150%; }
 }
 
 /* NAV */
@@ -98,8 +96,7 @@ nav {
   animation: goldPulse 3s infinite;
 }
 
-.nav-btn {
-  background: transparent;
+.nav-btn {  background: transparent;
   color: var(--primary);
   border: 2px solid var(--primary);
   padding: 10px 25px;
@@ -129,7 +126,7 @@ nav {
   padding: 0 20px;
   background: 
     linear-gradient(180deg, rgba(5,5,5,0.3) 0%, rgba(5,5,5,0.8) 50%, rgba(5,5,5,1) 100%),
-    url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1920&q=80') center/cover no-repeat;
+    url('https://cdn.pixabay.com/photo/2016/02/13/13/11/oldtimer-1197100_1280.jpg') center/cover no-repeat;
 }
 
 .hero::before {
@@ -148,7 +145,6 @@ nav {
   z-index: 2;
   animation: slideIn 1s ease-out;
 }
-
 .hero h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 5rem;
@@ -198,8 +194,7 @@ nav {
 .stat-number {
   font-family: 'Orbitron', sans-serif;
   font-size: 3rem;
-  font-weight: 900;
-  color: var(--primary);
+  font-weight: 900;  color: var(--primary);
   display: block;
   animation: neonPulse 3s infinite;
 }
@@ -232,12 +227,6 @@ nav {
   display: inline-block;
 }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 .cta-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 0 50px rgba(255, 215, 0, 0.5), 0 0 100px rgba(255, 215, 0, 0.2);
@@ -254,12 +243,6 @@ nav {
   transform: rotate(45deg);
   animation: shine 3s infinite;
 }
-
-@keyframes shine {
-  0% { left: -50%; }
-  100% { left: 150%; }
-}
-
 /* Racing Stripes Divider */
 .racing-divider {
   height: 6px;
@@ -309,8 +292,7 @@ nav {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));  gap: 30px;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -344,22 +326,22 @@ nav {
   background: linear-gradient(0deg, var(--bg-card) 0%, transparent 100%);
 }
 
+/* Картинки с Pixabay (работают без VPN) */
 .card:nth-child(1) .card-image {
-  background-image: url('https://images.unsplash.com/photo-1578844251758-2f71da64c96f?w=600&q=80');
+  background-image: url('https://cdn.pixabay.com/photo/2016/04/01/12/16/car-1300629_1280.png');
 }
 .card:nth-child(2) .card-image {
-  background-image: url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=600&q=80');
+  background-image: url('https://cdn.pixabay.com/photo/2012/05/29/00/43/car-49278_1280.png');
 }
 .card:nth-child(3) .card-image {
-  background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80');
+  background-image: url('https://cdn.pixabay.com/photo/2014/11/15/13/58/car-531334_1280.png');
 }
 .card:nth-child(4) .card-image {
-  background-image: url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80');
+  background-image: url('https://cdn.pixabay.com/photo/2016/04/01/12/16/car-1300629_1280.png');
 }
 
 .card-content {
-  padding: 30px;
-  position: relative;
+  padding: 30px;  position: relative;
 }
 
 .card h3 {
@@ -409,7 +391,6 @@ nav {
     0 0 30px rgba(0, 242, 255, 0.1),
     inset 0 0 30px rgba(0, 242, 255, 0.05);
 }
-
 .card:hover .card-image {
   transform: scale(1.1);
 }
@@ -456,10 +437,9 @@ nav {
   text-align: center;
   background: 
     linear-gradient(180deg, rgba(5,5,5,0.9), rgba(5,5,5,0.7)),
-    url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=80') center/cover no-repeat;
+    url('https://cdn.pixabay.com/photo/2014/10/29/15/34/road-509609_1280.jpg') center/cover no-repeat;
   position: relative;
 }
-
 .cta-section h2 {
   font-family: 'Orbitron', sans-serif;
   font-size: 3rem;
@@ -509,7 +489,6 @@ footer .contact {
   font-size: 1.1rem;
   margin-top: 15px;
 }
-
 /* MODAL */
 .modal-overlay {
   position: fixed;
@@ -558,8 +537,7 @@ footer .contact {
   position: absolute;
   top: 10px; right: 20px;
   font-size: 2rem;
-  cursor: pointer;
-  color: var(--text-muted);
+  cursor: pointer;  color: var(--text-muted);
   transition: 0.3s;
 }
 .close-modal:hover { color: var(--red); transform: rotate(90deg); }
@@ -608,8 +586,7 @@ footer .contact {
   letter-spacing: 2px;
   color: #000;
   transition: 0.3s;
-  clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
-}
+  clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);}
 
 .modal-btn:hover {
   box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
@@ -658,8 +635,7 @@ footer .contact {
     
     <div class="hero-stats">
       <div class="stat-item">
-        <span class="stat-number">10+</span>
-        <span class="stat-label">Лет опыта</span>
+        <span class="stat-number">10+</span>        <span class="stat-label">Лет опыта</span>
       </div>
       <div class="stat-item">
         <span class="stat-number">50K+</span>
@@ -671,7 +647,7 @@ footer .contact {
       </div>
     </div>
     
-    <button class="cta-btn" onclick="openModal()">️ ЗАПИСАТЬСЯ СЕЙЧАС</button>
+    <button class="cta-btn" onclick="openModal()">🔥 ЗАПИСАТЬСЯ СЕЙЧАС</button>
   </div>
 </section>
 
@@ -680,7 +656,7 @@ footer .contact {
 <!-- FEATURES BAR -->
 <div class="features-bar">
   <div class="feature-item">
-    <span class="feature-icon"></span>
+    <span class="feature-icon">⚡</span>
     <h4>БЫСТРО</h4>
     <p>Переобувка за 30 минут</p>
   </div>
@@ -708,8 +684,7 @@ footer .contact {
   <div class="grid">
     <!-- Card 1 -->
     <div class="card">
-      <div class="card-image"></div>
-      <div class="card-content">
+      <div class="card-image"></div>      <div class="card-content">
         <h3>🔄 Переобувка</h3>
         <p>Снятие/Монтаж + Балансировка. Работаем с R15 - R22. Быстро и аккуратно.</p>
         <div class="price-row"><span>Легковые (R15-17)</span><span>1 800 ₽</span></div>
@@ -722,7 +697,7 @@ footer .contact {
     <div class="card">
       <div class="card-image"></div>
       <div class="card-content">
-        <h3>️ Балансировка</h3>
+        <h3>⚖️ Балансировка</h3>
         <p>Компьютерная балансировка на оборудовании Hunter. Точность до 1 грамма.</p>
         <div class="price-row"><span>Легковые</span><span>500 ₽/колесо</span></div>
         <div class="price-row"><span>Кроссоверы</span><span>700 ₽/колесо</span></div>
@@ -758,8 +733,7 @@ footer .contact {
 
 <div class="racing-divider"></div>
 
-<!-- CTA SECTION -->
-<section class="cta-section">
+<!-- CTA SECTION --><section class="cta-section">
   <h2>ГОТОВ К <span class="gold">СКОРОСТИ</span>?</h2>
   <p>Не жди очередей. Запишись онлайн и приезжай в назначенное время. Мы уже ждём.</p>
   <button class="cta-btn" onclick="openModal()">📞 ЗАПИСАТЬСЯ</button>
@@ -769,8 +743,8 @@ footer .contact {
 <footer>
   <div class="logo-footer">FORSAZH ///</div>
   <p>Премиальный шиномонтаж &copy; 2026</p>
-  <p class="contact">📍 ул. Скоростная, д. 1 &nbsp;|&nbsp; 📞 +7 (999) 000-00-00</p>
-  <p style="margin-top: 20px; font-size: 0.8rem;">Работаем без выходных &nbsp;|&nbsp; 08:00 - 22:00</p>
+  <p class="contact">📍 ул. Скоростная, д. 1  |  📞 +7 (999) 000-00-00</p>
+  <p style="margin-top: 20px; font-size: 0.8rem;">Работаем без выходных  |  08:00 - 22:00</p>
 </footer>
 
 <!-- MODAL -->
@@ -808,8 +782,7 @@ footer .contact {
 
   function submitBooking() {
     const name = document.getElementById('nameInput').value;
-    const phone = document.getElementById('phoneInput').value;
-    
+    const phone = document.getElementById('phoneInput').value;    
     if(!name || !phone) {
       alert("Заполни все поля, братан! 🔥");
       return;
@@ -855,4 +828,3 @@ footer .contact {
 
 </body>
 </html>
-
