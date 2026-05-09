@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ШИНОМОНТАЖ FORSAZH | Premium Service</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Russo+One&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-dark: #050505;
+  --bg-card: #0a0a12;
+  --primary: #00f2ff;
+  --accent: #ffd700;
+  --red: #ff1744;
+  --text-main: #ffffff;
+  --text-muted: #8892b0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Russo One', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Speed Lines Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 50px,
+      rgba(0, 242, 255, 0.03) 50px,
+      rgba(0, 242, 255, 0.03) 51px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Neon Glow Animation */
+@keyframes neonPulse {
+  0%, 100% { text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 40px var(--primary); }
+  50% { text-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary), 0 0 80px var(--primary), 0 0 120px var(--primary); }
+}
+
+@keyframes goldPulse {
+  0%, 100% { text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent); }
+  50% { text-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent), 0 0 80px var(--accent); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes drift {
+  0% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(20px) rotate(2deg); }
+  75% { transform: translateX(-20px) rotate(-2deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background: rgba(5,5,5,0.95);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid var(--primary);
+  box-shadow: 0 5px 30px rgba(0, 242, 255, 0.3);
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  font-style: italic;
+  background: linear-gradient(90deg, var(--accent), #fff, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldPulse 3s infinite;
+}
+
+.nav-btn {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 10px 25px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+  clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+  letter-spacing: 2px;
+}
+.nav-btn:hover {
+  background: var(--primary);
+  color: #000;
+  box-shadow: 0 0 25px var(--primary), inset 0 0 25px rgba(0,242,255,0.3);
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+  background: 
+    linear-gradient(180deg, rgba(5,5,5,0.3) 0%, rgba(5,5,5,0.8) 50%, rgba(5,5,5,1) 100%),
+    url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1920&q=80') center/cover no-repeat;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: 
+    linear-gradient(45deg, rgba(0, 242, 255, 0.1) 0%, transparent 50%),
+    linear-gradient(-45deg, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: slideIn 1s ease-out;
+}
+
+.hero h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 5rem;
+  line-height: 1;
+  margin-bottom: 20px;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.hero h1 .main-text {
+  display: block;
+  color: #fff;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero h1 .highlight {
+  display: block;
+  background: linear-gradient(90deg, var(--accent), var(--red), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldPulse 2s infinite;
+  font-size: 4rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  max-width: 700px;
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--primary);
+  display: block;
+  animation: neonPulse 3s infinite;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.cta-btn {
+  background: linear-gradient(45deg, var(--accent), #ff8c00, var(--accent));
+  background-size: 200% 200%;
+  animation: gradientMove 3s ease infinite;
+  color: #000;
+  padding: 18px 60px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+  letter-spacing: 3px;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cta-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.5), 0 0 100px rgba(255, 215, 0, 0.2);
+}
+
+.cta-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -50%; }
+  100% { left: 150%; }
+}
+
+/* Racing Stripes Divider */
+.racing-divider {
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--accent) 0px,
+    var(--accent) 20px,
+    transparent 20px,
+    transparent 40px,
+    var(--primary) 40px,
+    var(--primary) 60px,
+    transparent 60px,
+    transparent 80px
+  );
+  margin: 0;
+}
+
+/* SERVICES */
+.services {
+  padding: 100px 5%;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.section-title .gold {
+  color: var(--accent);
+  animation: goldPulse 3s infinite;
+}
+
+.section-title::after {
+  content: '///';
+  display: block;
+  color: var(--primary);
+  font-size: 2rem;
+  margin-top: 10px;
+  animation: neonPulse 2s infinite;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  border-bottom: 4px solid var(--accent);
+  padding: 0;
+  border-radius: 0;
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 95% 100%, 0 100%);
+}
+
+.card-image {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.card-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(0deg, var(--bg-card) 0%, transparent 100%);
+}
+
+.card:nth-child(1) .card-image {
+  background-image: url('https://images.unsplash.com/photo-1578844251758-2f71da64c96f?w=600&q=80');
+}
+.card:nth-child(2) .card-image {
+  background-image: url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=600&q=80');
+}
+.card:nth-child(3) .card-image {
+  background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80');
+}
+.card:nth-child(4) .card-image {
+  background-image: url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80');
+}
+
+.card-content {
+  padding: 30px;
+  position: relative;
+}
+
+.card h3 {
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-family: sans-serif;
+}
+
+.price-row span:first-child {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.price-row span:last-child {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.02);
+  border-color: var(--primary);
+  box-shadow: 
+    0 20px 60px rgba(0, 242, 255, 0.2),
+    0 0 30px rgba(0, 242, 255, 0.1),
+    inset 0 0 30px rgba(0, 242, 255, 0.05);
+}
+
+.card:hover .card-image {
+  transform: scale(1.1);
+}
+
+/* FEATURES BAR */
+.features-bar {
+  background: linear-gradient(90deg, rgba(0,242,255,0.1), rgba(255,215,0,0.1), rgba(0,242,255,0.1));
+  padding: 40px 5%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  border-top: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+.feature-item {
+  text-align: center;
+  max-width: 200px;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.feature-item h4 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--accent);
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.feature-item p {
+  color: var(--text-muted);
+  font-family: sans-serif;
+  font-size: 0.85rem;
+}
+
+/* CTA SECTION */
+.cta-section {
+  padding: 100px 5%;
+  text-align: center;
+  background: 
+    linear-gradient(180deg, rgba(5,5,5,0.9), rgba(5,5,5,0.7)),
+    url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=80') center/cover no-repeat;
+  position: relative;
+}
+
+.cta-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.cta-section p {
+  color: var(--text-muted);
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 2px solid var(--accent);
+  background: var(--bg-card);
+  position: relative;
+  z-index: 1;
+}
+
+footer .logo-footer {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  font-style: italic;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+
+footer p {
+  color: var(--text-muted);
+  font-family: sans-serif;
+  margin-bottom: 5px;
+}
+
+footer .contact {
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin-top: 15px;
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+  backdrop-filter: blur(10px);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  background: var(--bg-card);
+  padding: 40px;
+  border: 2px solid var(--primary);
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 80px rgba(0, 242, 255, 0.3);
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 97% 100%, 0 100%);
+}
+
+.modal::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px;
+  right: -2px; bottom: -2px;
+  background: linear-gradient(45deg, var(--primary), var(--accent), var(--primary));
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.5;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: 0.3s;
+}
+.close-modal:hover { color: var(--red); transform: rotate(90deg); }
+
+.modal h2 {
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.modal h2 .blue { color: var(--primary); }
+
+.modal input, .modal select {
+  width: 100%;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.modal input:focus, .modal select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+}
+
+.modal input::placeholder {
+  color: var(--text-muted);
+}
+
+.modal-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border: none;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #000;
+  transition: 0.3s;
+  clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
+}
+
+.modal-btn:hover {
+  box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
+  transform: scale(1.02);
+}
+
+/* Scroll animations */
+.card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 3rem; }
+  .hero h1 .main-text { font-size: 2rem; }
+  .hero h1 .highlight { font-size: 2.5rem; }
+  .section-title { font-size: 2rem; }
+  .grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 20px; }
+  .stat-number { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">FORSAZH ///</div>
+  <button class="nav-btn" onclick="openModal()">ЗАПИСАТЬСЯ</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>
+      <span class="main-text">ШИНОМОНТАЖ</span>
+      <span class="highlight">FORSAZH</span>
+    </h1>
+    <p>Премиальный сервис для тех, кто живёт на скорости. Оборудование нового поколения, профессионалы и скорость реакции как в фильме.</p>
+    
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number">10+</span>
+        <span class="stat-label">Лет опыта</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">50K+</span>
+        <span class="stat-label">Клиентов</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">24/7</span>
+        <span class="stat-label">Работаем</span>
+      </div>
+    </div>
+    
+    <button class="cta-btn" onclick="openModal()">️ ЗАПИСАТЬСЯ СЕЙЧАС</button>
+  </div>
+</section>
+
+<div class="racing-divider"></div>
+
+<!-- FEATURES BAR -->
+<div class="features-bar">
+  <div class="feature-item">
+    <span class="feature-icon"></span>
+    <h4>БЫСТРО</h4>
+    <p>Переобувка за 30 минут</p>
+  </div>
+  <div class="feature-item">
+    <span class="feature-icon">🛡️</span>
+    <h4>НАДЁЖНО</h4>
+    <p>Гарантия на все работы</p>
+  </div>
+  <div class="feature-item">
+    <span class="feature-icon">💎</span>
+    <h4>ПРЕМИУМ</h4>
+    <p>Оборудование Hunter</p>
+  </div>
+  <div class="feature-item">
+    <span class="feature-icon">🔧</span>
+    <h4>ПРОФИ</h4>
+    <p>Мастера с опытом 10+ лет</p>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services">
+  <h2 class="section-title">УСЛУГИ И <span class="gold">ЦЕНЫ</span></h2>
+  
+  <div class="grid">
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="card-image"></div>
+      <div class="card-content">
+        <h3>🔄 Переобувка</h3>
+        <p>Снятие/Монтаж + Балансировка. Работаем с R15 - R22. Быстро и аккуратно.</p>
+        <div class="price-row"><span>Легковые (R15-17)</span><span>1 800 ₽</span></div>
+        <div class="price-row"><span>Кроссоверы (R18-19)</span><span>2 400 ₽</span></div>
+        <div class="price-row"><span>Внедорожники (R20+)</span><span>3 200 ₽</span></div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="card-image"></div>
+      <div class="card-content">
+        <h3>️ Балансировка</h3>
+        <p>Компьютерная балансировка на оборудовании Hunter. Точность до 1 грамма.</p>
+        <div class="price-row"><span>Легковые</span><span>500 ₽/колесо</span></div>
+        <div class="price-row"><span>Кроссоверы</span><span>700 ₽/колесо</span></div>
+        <div class="price-row"><span>Грузовые</span><span>от 1 200 ₽</span></div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="card-image"></div>
+      <div class="card-content">
+        <h3>📦 Хранение</h3>
+        <p>Сезонное хранение шин в отапливаемом складе с контролем влажности.</p>
+        <div class="price-row"><span>Легковые (4 шт)</span><span>3 500 ₽/сезон</span></div>
+        <div class="price-row"><span>Кроссоверы</span><span>4 500 ₽/сезон</span></div>
+        <div class="price-row"><span>VIP Ящики</span><span>6 000 ₽/сезон</span></div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+      <div class="card-image"></div>
+      <div class="card-content">
+        <h3>🔧 Ремонт</h3>
+        <p>Ремонт проколов, боковых порезов и грыж. Восстановление геометрии.</p>
+        <div class="price-row"><span>Жгут</span><span>600 ₽</span></div>
+        <div class="price-row"><span>Комбинированный</span><span>900 ₽</span></div>
+        <div class="price-row"><span>Боковой порез</span><span>от 1 500 ₽</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="racing-divider"></div>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <h2>ГОТОВ К <span class="gold">СКОРОСТИ</span>?</h2>
+  <p>Не жди очередей. Запишись онлайн и приезжай в назначенное время. Мы уже ждём.</p>
+  <button class="cta-btn" onclick="openModal()">📞 ЗАПИСАТЬСЯ</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo-footer">FORSAZH ///</div>
+  <p>Премиальный шиномонтаж &copy; 2026</p>
+  <p class="contact">📍 ул. Скоростная, д. 1 &nbsp;|&nbsp; 📞 +7 (999) 000-00-00</p>
+  <p style="margin-top: 20px; font-size: 0.8rem;">Работаем без выходных &nbsp;|&nbsp; 08:00 - 22:00</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <h2>ЗАПИСЬ В <span class="blue">СЕРВИС</span></h2>
+    <input type="text" placeholder="Ваше Имя" id="nameInput">
+    <input type="tel" placeholder="Телефон" id="phoneInput">
+    <select id="serviceSelect">
+      <option value="">Выберите услугу</option>
+      <option value="change">🔄 Переобувка</option>
+      <option value="balance">⚖️ Балансировка</option>
+      <option value="repair">🔧 Ремонт</option>
+      <option value="storage">📦 Хранение</option>
+    </select>
+    <button class="modal-btn" onclick="submitBooking()">ПОДТВЕРДИТЬ ЗАПИСЬ</button>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('bookingModal');
+  
+  function openModal() {
+    modal.classList.add('active');
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+  }
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  function submitBooking() {
+    const name = document.getElementById('nameInput').value;
+    const phone = document.getElementById('phoneInput').value;
+    
+    if(!name || !phone) {
+      alert("Заполни все поля, братан! 🔥");
+      return;
+    }
+
+    const btn = document.querySelector('.modal-btn');
+    btn.innerHTML = "⏳ ОТПРАВКА...";
+    btn.style.opacity = "0.7";
+
+    setTimeout(() => {
+      btn.innerHTML = "✅ ЗАПИСАНО! ЖДЁМ ТЕБЯ!";
+      btn.style.background = "linear-gradient(90deg, #00ff88, #00cc6a)";
+      
+      setTimeout(() => {
+        closeModal();
+        setTimeout(() => {
+          btn.innerHTML = "ПОДТВЕРДИТЬ ЗАПИСЬ";
+          btn.style.background = "linear-gradient(90deg, var(--primary), var(--accent))";
+          btn.style.opacity = "1";
+          document.getElementById('nameInput').value = '';
+          document.getElementById('phoneInput').value = '';
+          document.getElementById('serviceSelect').value = '';
+        }, 800);
+      }, 2000);
+    }, 1000);
+  }
+
+  // Scroll animations for cards
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 150);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.card').forEach(card => {
+    observer.observe(card);
+  });
+</script>
+
+</body>
+</html>
+
